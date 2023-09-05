@@ -1,9 +1,8 @@
-import { useEffect } from "react";
 import { SelectionPopover } from "./components/selection-popover";
 
 function App() {
 	return (
-		<main id="main" className="max-3xl mx-auto prose p-4 lg:p-8">
+		<main id="main" className="max-3xl mx-auto prose p-4 lg:p-8 mt-10">
 			<h3>React 实现圈选高亮</h3>
 			<p>
 				Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, nostrum
