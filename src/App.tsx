@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { SelectionPopover } from "./components/selection-popover";
 
 function App() {

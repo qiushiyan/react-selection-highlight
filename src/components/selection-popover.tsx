@@ -1,10 +1,33 @@
 import { Popover } from "react-text-selection-popover";
 import { PencilIcon } from "./pencil";
 
+const unwrapElement = (el: Element) => {
+	if (el.textContent) {
+		const text = document.createTextNode(el.textContent);
+		el.parentNode?.replaceChild(text, el);
+	}
+};
+
 export const SelectionPopover = () => {
 	const target = document.getElementById("main");
 
-	const highlight = () => {};
+	const highlight = () => {
+		const selection = window.getSelection();
+		if (selection) {
+			const range = selection.getRangeAt(0);
+			const id = crypto.randomUUID();
+			const node = document.createElement("span");
+			node.id = id;
+			node.classList.add("highlight");
+			range.surroundContents(node);
+
+			node.addEventListener("click", () => {
+				if (confirm("删除？")) {
+					unwrapElement(node);
+				}
+			});
+		}
+	};
 
 	return (
 		<Popover
